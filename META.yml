@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Mojolicious-Plugin-Authentication
-version:            v0.01
+version:            v0.02
 abstract:           A plugin to make authentication a bit easier
 author:
     - Ben van Staveren <madcat@cpan.org>
@@ -11,6 +11,7 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
+    Mojolicious:          0
     Mojolicious::Plugin::Session:  0
     MojoX::Session:       0
     Test::More:           0
