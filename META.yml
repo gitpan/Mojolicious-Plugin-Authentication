@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Mojolicious-Plugin-Authentication
-version:            v0.02
+version:            v0.03
 abstract:           A plugin to make authentication a bit easier
 author:
     - Ben van Staveren <madcat@cpan.org>
