@@ -1,6 +1,10 @@
+Build.PL
+Changes
 lib/Mojolicious/Plugin/Authentication.pm
-Makefile.PL
 MANIFEST
+META.json
+META.yml
 README
 t/00-load.t
-META.yml                                 Module meta-data (added by MakeMaker)
+t/01-functional.t
+t/manifest.t
