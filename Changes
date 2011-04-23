@@ -1,18 +1,69 @@
-Revision history for Mojolicious-Plugin-Authentication
+changeset:   12:2e3f7f1a5914
+tag:         tip
+user:        madcat@cpan.org
+date:        Sun Apr 24 02:04:37 2011 +0700
+summary:     Release
 
-22/04/2011  0.5.0
-    *   Changed version number (again) due to earlier module using version and qv(0.03) resulting in
-        a version number 0.3.0.
-    !   Fixed a bunch of bugs induced by coding-while-asleep, courtesy of Andre Parker 
-    +   Added functional test using Test::Mojo so we can all be sure the damn plugin
-        works the way it should :)
-    
+changeset:   11:83b57ecf971b
+user:        madcat@cpan.org
+date:        Sun Apr 24 02:04:25 2011 +0700
+summary:     Added tag 1.10 for changeset bfdb5a23c38e
 
-21/04/2011  0.04 (not released)
-    *   Changed from using ExtUtils::MakeMaker to Module::Build
-    *   Removed the dependency on MojoX::Session and Mojolicious::Plugin::Session
-    !   As a side effect of the above, this plugin no longer handles session data storage,
-        that has become something you'll have to deal with yourself. 
+changeset:   10:bfdb5a23c38e
+tag:         1.10
+user:        madcat@cpan.org
+date:        Sun Apr 24 02:04:08 2011 +0700
+summary:     Updated documentation
 
-0.01 - 0.03 
-    Changes history wasn't being kept, but suffice to say a lot was done.
+changeset:   9:b565ca1b355d
+user:        madcat@cpan.org
+date:        Sun Apr 24 01:59:51 2011 +0700
+summary:     Made this plugin rely on Mojolicious' built-in sessions a bit more. Session expiry is now handled with
+
+changeset:   8:50d570a7069f
+user:        madcat@cpan.org
+date:        Sun Apr 24 01:37:07 2011 +0700
+summary:     Took Changes out of version control
+
+changeset:   7:a1f4274da658
+user:        madcat@cpan.org
+date:        Fri Apr 22 19:41:00 2011 +0700
+summary:     Added tag 0.5.0 for changeset 995fbfca87e4
+
+changeset:   6:995fbfca87e4
+tag:         0.5.0
+user:        madcat@cpan.org
+date:        Fri Apr 22 19:12:56 2011 +0700
+summary:     *   Changed version number (again) due to earlier module using version and qv(0.03) resulting in
+
+changeset:   5:0712736a9f34
+user:        madcat@cpan.org
+date:        Thu Apr 21 08:21:12 2011 +0700
+summary:     Might as well remove this from being tracked
+
+changeset:   4:6c3f09ebb5ad
+user:        madcat@cpan.org
+date:        Thu Apr 21 08:17:14 2011 +0700
+summary:     Added tag 0.04 for changeset 14e7342d23e6
+
+changeset:   3:14e7342d23e6
+tag:         0.04
+user:        madcat@cpan.org
+date:        Thu Apr 21 08:17:08 2011 +0700
+summary:     Removed dependency on MojoX::Session and Mojolicious::Plugin::Session
+
+changeset:   2:65a10cd8bf15
+user:        madcat@cpan.org
+date:        Fri Apr 01 09:49:28 2011 +0700
+summary:     Doc fixes and some related bits
+
+changeset:   1:89dcf14ba0c9
+user:        madcat@cpan.org
+date:        Sat Mar 26 16:19:38 2011 +0700
+summary:     Fixed a mistake in the pod
+
+changeset:   0:89a26e649858
+user:        madcat@cpan.org
+date:        Sat Mar 26 16:06:52 2011 +0700
+summary:     Initial Import
+

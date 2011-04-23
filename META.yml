@@ -17,9 +17,9 @@ name: Mojolicious-Plugin-Authentication
 provides:
   Mojolicious::Plugin::Authentication:
     file: lib/Mojolicious/Plugin/Authentication.pm
-    version: v0.5.0
+    version: 1.10
 requires:
   Mojolicious: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: v0.5.0
+version: 1.10
