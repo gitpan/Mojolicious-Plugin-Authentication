@@ -1,10 +1,10 @@
 {
-   "abstract" : "Mojolicious plugin to make authentication of users a bit eaier",
+   "abstract" : "A plugin to make authentication a bit easier",
    "author" : [
       "Ben van Staveren <madcat@cpan.org>"
    ],
-   "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110930",
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930",
    "license" : [
       "perl_5"
    ],
@@ -16,32 +16,30 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Test::Mojo" : 0,
-            "Test::More" : 0
+            "Module::Build" : "0.3601"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "ExtUtils::MakeMaker" : "6.31",
+            "Module::Build" : "0.3601"
          }
       },
       "runtime" : {
          "requires" : {
-            "Mojolicious" : 0
+            "Mojo::Base" : 0
+         }
+      },
+      "test" : {
+         "requires" : {
+            "English" : 0,
+            "Mojolicious::Lite" : 0,
+            "Test::Mojo" : 0,
+            "Test::More" : 0
          }
       }
    },
-   "provides" : {
-      "Mojolicious::Plugin::Authentication" : {
-         "file" : "lib/Mojolicious/Plugin/Authentication.pm",
-         "version" : "1.10"
-      }
-   },
    "release_status" : "stable",
-   "resources" : {
-      "license" : [
-         "http://dev.perl.org/licenses/"
-      ]
-   },
-   "version" : "1.10"
+   "version" : "1.11"
 }
+

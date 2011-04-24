@@ -1,10 +1,13 @@
 Build.PL
-Changes
-lib/Mojolicious/Plugin/Authentication.pm
+LICENSE
 MANIFEST
 META.json
 META.yml
+Makefile.PL
 README
+dist.ini
+lib/Mojolicious/Plugin/Authentication.pm
 t/00-load.t
 t/01-functional.t
+t/author-critic.t
 t/manifest.t

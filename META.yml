@@ -1,25 +1,23 @@
 ---
-abstract: 'Mojolicious plugin to make authentication of users a bit eaier'
+abstract: 'A plugin to make authentication a bit easier'
 author:
   - 'Ben van Staveren <madcat@cpan.org>'
 build_requires:
+  English: 0
+  Module::Build: 0.3601
+  Mojolicious::Lite: 0
   Test::Mojo: 0
   Test::More: 0
 configure_requires:
-  Module::Build: 0.38
-dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110930'
+  ExtUtils::MakeMaker: 6.31
+  Module::Build: 0.3601
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Mojolicious-Plugin-Authentication
-provides:
-  Mojolicious::Plugin::Authentication:
-    file: lib/Mojolicious/Plugin/Authentication.pm
-    version: 1.10
 requires:
-  Mojolicious: 0
-resources:
-  license: http://dev.perl.org/licenses/
-version: 1.10
+  Mojo::Base: 0
+version: 1.11

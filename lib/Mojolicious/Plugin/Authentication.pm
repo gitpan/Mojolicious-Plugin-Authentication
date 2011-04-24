@@ -1,9 +1,10 @@
-package Mojolicious::Plugin::Authentication;
 use warnings;
 use strict;
+package Mojolicious::Plugin::Authentication;
+BEGIN {
+  $Mojolicious::Plugin::Authentication::VERSION = '1.11';
+}
 use Mojo::Base 'Mojolicious::Plugin';
-
-our $VERSION = '1.10';
 
 sub register {
     my ($self, $app, $args) = @_;
@@ -66,7 +67,7 @@ Mojolicious::Plugin::Authentication - A plugin to make authentication a bit easi
 
 =head1 VERSION
 
-Version 1.10
+version 1.11
 
 =head1 SYNOPSIS
 
@@ -181,15 +182,9 @@ L<Mojolicious::Sessions>
 
 Ben van Staveren, C<< <madcat at cpan.org> >>
 
-=head1 BUGS
+=head1 BUGS / CONTRIBUTING
 
-Please report any bugs or feature requests through the web interface at L<https://bitbucket.org/xirinet/mojolicious-plugin-authentication/issues>.
-
-=head1 CONTRIBUTING
-
-If you want to contribute changes or otherwise involve yourself in development, feel free to fork the Mercurial repository from
-L<http://bitbucket.org/xirinet/mojolicious-plugin-authentication/> and make pull requests for any patches you have.
-
+Please report any bugs or feature requests through the web interface at L<https://github.com/benvanstaveren/mojolicious-plugin-authentication/issues>.
 
 =head1 SUPPORT
 
