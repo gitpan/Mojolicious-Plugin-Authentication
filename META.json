@@ -43,12 +43,13 @@
       "bugtracker" : {
          "web" : "https://github.com/benvanstaveren/Mojolicious-Plugin-Authentication/issues"
       },
+      "homepage" : "http://search.cpan.org/dist/Mojolicious-Plugin-Authentication/",
       "repository" : {
          "type" : "git",
          "url" : "git://github.com/benvanstaveren/Mojolicious-Plugin-Authentication.git",
          "web" : "https://github.com/benvanstaveren/Mojolicious-Plugin-Authentication"
       }
    },
-   "version" : "1.12"
+   "version" : "1.13"
 }
 
