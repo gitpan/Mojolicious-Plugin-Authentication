@@ -16,13 +16,13 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.38"
          }
       },
       "configure" : {
          "requires" : {
             "ExtUtils::MakeMaker" : "6.31",
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.38"
          }
       },
       "runtime" : {
@@ -32,7 +32,6 @@
       },
       "test" : {
          "requires" : {
-            "English" : 0,
             "Mojolicious::Lite" : 0,
             "Test::Mojo" : 0,
             "Test::More" : 0
@@ -40,6 +39,16 @@
       }
    },
    "release_status" : "stable",
-   "version" : "1.11"
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/benvanstaveren/Mojolicious-Plugin-Authentication/issues"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/benvanstaveren/Mojolicious-Plugin-Authentication.git",
+         "web" : "https://github.com/benvanstaveren/Mojolicious-Plugin-Authentication"
+      }
+   },
+   "version" : "1.12"
 }
 

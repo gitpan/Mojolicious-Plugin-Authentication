@@ -2,27 +2,26 @@
 use strict;
 use warnings;
 
-use Module::Build 0.3601;
+use Module::Build 0.38;
 
 
 my %module_build_args = (
   'build_requires' => {
-    'English' => '0',
-    'Module::Build' => '0.3601',
+    'Module::Build' => '0.38',
     'Mojolicious::Lite' => '0',
     'Test::Mojo' => '0',
     'Test::More' => '0'
   },
   'configure_requires' => {
     'ExtUtils::MakeMaker' => '6.31',
-    'Module::Build' => '0.3601'
+    'Module::Build' => '0.38'
   },
   'dist_abstract' => 'A plugin to make authentication a bit easier',
   'dist_author' => [
     'Ben van Staveren <madcat@cpan.org>'
   ],
   'dist_name' => 'Mojolicious-Plugin-Authentication',
-  'dist_version' => '1.11',
+  'dist_version' => '1.12',
   'license' => 'perl',
   'module_name' => 'Mojolicious::Plugin::Authentication',
   'recommends' => {},

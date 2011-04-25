@@ -2,7 +2,7 @@ use warnings;
 use strict;
 package Mojolicious::Plugin::Authentication;
 BEGIN {
-  $Mojolicious::Plugin::Authentication::VERSION = '1.11';
+  $Mojolicious::Plugin::Authentication::VERSION = '1.12';
 }
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -14,7 +14,7 @@ sub register {
     die __PACKAGE__, ": missing 'load_user' subroutine ref in parameters\n" unless($args->{load_user});
     die __PACKAGE__, ": missing 'validate_user' subroutine ref in parameters\n" unless($args->{validate_user});
 
-    my $session_key     = $args->{session_key} || 'session_' . ref($app);
+    my $session_key     = $args->{session_key} || 'session';
     my $our_stash_key   = $args->{stash_key} || '__authentication__'; 
     my $load_user_f     = $args->{load_user};
     my $validate_user_f = $args->{validate_user};
@@ -26,23 +26,30 @@ sub register {
     $app->plugins->add_hook(before_dispatch => sub {
         my $self    = shift;
         my $c       = shift;
-        if(my $uid = $c->session->{$session_key}) {
+        if(my $uid = $c->session($session_key)) {
             my $user;
-            $c->stash->{$our_stash_key}->{user} = $user if($uid && ($user = $load_user_f->($self, $uid)));
+            $c->stash($our_stash_key => { user => $user }) if($uid && ($user = $load_user_f->($self, $uid)));
         }
     });
     $app->helper(user_exists => sub {
         my $self = shift;
-        return (defined($self->stash->{$our_stash_key}->{user})) ? 1 : 0;
+        return (
+            defined($self->stash($our_stash_key)) && 
+            defined($self->stash($our_stash_key)->{user})
+            ) ? 1 : 0;
+
     });
     $app->helper(user => sub {
         my $self = shift;
-        return $self->stash->{$our_stash_key}->{user} || undef;
+        return ($self->stash($our_stash_key))
+            ? $self->stash($our_stash_key)->{user}
+            : undef;
     });
     $app->helper(logout => sub {
         my $self = shift;
-        delete($self->stash->{$our_stash_key}->{user});
-        delete($self->stash->{$session_key}->{__uid__});
+        delete($self->stash->{$our_stash_key});
+        delete($self->session->{$session_key});
+
     });
     $app->helper(authenticate => sub {
         my $self = shift;
@@ -50,6 +57,7 @@ sub register {
         my $pass = shift;
 
         if(my $uid = $validate_user_f->($self, $user, $pass)) {
+            $self->session($session_key => $uid);
             $self->session->{$session_key} = $uid;
             $self->stash->{$our_stash_key}->{user} = $load_user_f->($self, $uid);
             return 1;
@@ -67,7 +75,7 @@ Mojolicious::Plugin::Authentication - A plugin to make authentication a bit easi
 
 =head1 VERSION
 
-version 1.11
+version 1.12
 
 =head1 SYNOPSIS
 

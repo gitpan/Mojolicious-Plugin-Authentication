@@ -12,15 +12,14 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'A plugin to make authentication a bit easier',
   'AUTHOR' => 'Ben van Staveren <madcat@cpan.org>',
   'BUILD_REQUIRES' => {
-    'English' => '0',
-    'Module::Build' => '0.3601',
+    'Module::Build' => '0.38',
     'Mojolicious::Lite' => '0',
     'Test::Mojo' => '0',
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.31',
-    'Module::Build' => '0.3601'
+    'Module::Build' => '0.38'
   },
   'DISTNAME' => 'Mojolicious-Plugin-Authentication',
   'EXE_FILES' => [],
@@ -29,7 +28,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'Mojo::Base' => '0'
   },
-  'VERSION' => '1.11',
+  'VERSION' => '1.12',
   'test' => {
     'TESTS' => 't/*.t'
   }
