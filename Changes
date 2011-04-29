@@ -1,5 +1,8 @@
 Revision history for Mojolicious-Plugin-Authentication
 
+1.14      2011-04-30 00:39:11 Asia/Jakarta
+    -   Code cleanup (memowe) 
+
 1.13      2011-04-25 17:49:13 Asia/Jakarta
     -   Added extra check on load_user and validate_user configuration options to make sure they're not only there,
         but they are actually code refs
