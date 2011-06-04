@@ -4,7 +4,7 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -18,7 +18,7 @@ my %WriteMakefileArgs = (
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31',
+    'ExtUtils::MakeMaker' => '6.30',
     'Module::Build' => '0.38'
   },
   'DISTNAME' => 'Mojolicious-Plugin-Authentication',
@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'Mojo::Base' => '0'
   },
-  'VERSION' => '1.15',
+  'VERSION' => '1.16',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -3,7 +3,7 @@ NAME
     bit easier
 
 VERSION
-    version 1.15
+    version 1.16
 
 SYNOPSIS
         use Mojolicious::Plugin::Authentication
@@ -41,14 +41,15 @@ CONFIGURATION
 
     load_user (REQUIRED) A coderef for user loading (see USER LOADING)
     validate_user (REQUIRED) A coderef for user validation (see USER
-    VALIDATION) session_key (optional) The name of the session key
+    VALIDATION)
+    session_key (optional) The name of the session key
 
     In order to set the session expiry time, use the following in your
     startup routine:
 
-    $app->plugin('authentication', { ... });
-    $app->sessions->default_expiration(86400); # set expiry to 1 day
-    $app->sessions->default_expiration(3600); # set expiry to 1 hour
+        $app->plugin('authentication', { ... });
+        $app->sessions->default_expiration(86400); # set expiry to 1 day
+        $app->sessions->default_expiration(3600); # set expiry to 1 hour
 
 USER LOADING
     The coderef you pass to the load_user configuration key has the
