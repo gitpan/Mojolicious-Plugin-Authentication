@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::Authentication;
 BEGIN {
-  $Mojolicious::Plugin::Authentication::VERSION = '1.16';
+  $Mojolicious::Plugin::Authentication::VERSION = '1.17';
 }
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -24,8 +24,8 @@ sub register {
         return ($required && $c->user_exists) ? 1 : 0;
     });
 
-    $app->plugins->add_hook(before_dispatch => sub {
-        my ($self, $c) = @_;
+    $app->hook(before_dispatch => sub {
+        my ($c) = @_;
         if (my $uid = $c->session($session_key)) {
             my $user = $load_user_cb->($c, $uid);
             $c->stash($our_stash_key => { user => $user }) if $user;
@@ -74,7 +74,7 @@ Mojolicious::Plugin::Authentication - A plugin to make authentication a bit easi
 
 =head1 VERSION
 
-version 1.16
+version 1.17
 
 =head1 SYNOPSIS
 

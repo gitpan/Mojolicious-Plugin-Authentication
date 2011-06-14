@@ -1,4 +1,7 @@
 Revision history for Mojolicious-Plugin-Authentication
 
+1.17      2011-06-14 16:06:34 Asia/Jakarta
+    Fixed a bug for newer versions of Mojolicious that no longer send the same set of parameters to a hook
+
 1.16      2011-06-04 18:29:01 Asia/Jakarta
     POD fixes and cleanup
