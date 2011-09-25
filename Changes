@@ -1,5 +1,9 @@
 Revision history for Mojolicious-Plugin-Authentication
 
+1.19      2011-09-25 21:26:38 Asia/Jakarta
+    Added an 'extra_data' hashref to the authenticate method that will be passed to your registered callback, 
+    and merged in some documentation fixes courtesy of metaperl. 
+
 1.18      2011-07-27 01:15:43 Asia/Jakarta
     Fixed a bug for newer versions of Mojolicious that no longer send the same set of parameters to a hook
     Added the ability to pass extra data to the validate_user callback, it came up as a need in a project so ported it over

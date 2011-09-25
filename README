@@ -3,7 +3,7 @@ NAME
     bit easier
 
 VERSION
-    version 1.18
+    version 1.19
 
 SYNOPSIS
         use Mojolicious::Plugin::Authentication
@@ -20,17 +20,18 @@ SYNOPSIS
 
 METHODS
   authenticate($username, $password, $extra_data_hashref)
-    Authenticate will use the supplied load_user and validate_user
+    Authenticate will use the supplied "load_user" and "validate_user"
     subroutine refs to see whether a user exists with the given username and
     password, and will set up the session accordingly. Returns true when the
     user has been successfully authenticated, false otherwise. You can pass
-    additional data along in the extra_data hashref,
+    additional data along in the extra_data hashref, it will be passed to
+    your "validate_user" subroutine as-is.
 
   user_exists
     Returns true if an authenticated user exists, false otherwise.
 
   user
-    Returns the user object as it was returned from the supplied 'load_user'
+    Returns the user object as it was returned from the supplied "load_user"
     subroutine ref.
 
   logout
@@ -40,9 +41,9 @@ METHODS
 CONFIGURATION
     The following options can be set for the plugin:
 
-    load_user (REQUIRED) A coderef for user loading (see USER LOADING)
-    validate_user (REQUIRED) A coderef for user validation (see USER
-    VALIDATION)
+    load_user (REQUIRED) A coderef for user loading (see "USER LOADING")
+    validate_user (REQUIRED) A coderef for user validation (see "USER
+    VALIDATION")
     session_key (optional) The name of the session key
 
     In order to set the session expiry time, use the following in your
@@ -62,14 +63,14 @@ USER LOADING
             return $user;
         }
 
-    The uid is the value that was originally returned from the validate_user
-    coderef. You must return either a user object (it can be a hashref,
-    arrayref, or a blessed object) or undef.
+    The uid is the value that was originally returned from the
+    "validate_user" coderef. You must return either a user object (it can be
+    a hashref, arrayref, or a blessed object) or undef.
 
 USER VALIDATION
     User validation is what happens when we need to authenticate someone.
-    The coderef you pass to the validate_user configuration key has the
-    following signatre:
+    The coderef you pass to the "validate_user" configuration key has the
+    following signature:
 
         sub {
             my ($app, $username, $password, $extradata) = @_;
@@ -79,8 +80,8 @@ USER VALIDATION
 
     You must return either a user id or undef. The user id can be numerical
     or a string. Do not return hashrefs, arrayrefs or objects, since the
-    behaviour of this plugin could get a little bit on the odd side of
-    weird.
+    behaviour of this plugin could get a little bit on the odd side of weird
+    if you do that.
 
 EXAMPLES
     For a code example using this, see the t/01-functional.t test, it uses
@@ -99,7 +100,7 @@ ROUTING VIA CONDITION
     the dispatcher and unless you have set up a catch-all route, a 404 Not
     Found will be generated instead.
 
-ROUTING VIA BRIDGE
+ROUTING VIA CALLBACK
     If you want to be able to send people to a login page, you will have to
     use the following:
 
@@ -112,8 +113,23 @@ ROUTING VIA BRIDGE
 
         $members_only->route('online')->to('members#online');
 
+ROUTING VIA BRIDGE
+    If you want to be able to send people to a login page, you will have to
+    use the following:
+
+        my $auth_bridge = $r->bridge('/members')->to('auth#check');
+        $auth_bridge->route('/list')->to('members#list'); # only visible to logged in users
+
+    And in your Auth controller you would put:
+
+        sub check {
+            my $self = shift;
+            $self->redirect_to('/login') and return 0 unless($self->user_exists);
+            return 1;
+        });
+
 SEE ALSO
-    Mojolicious::Sessions
+    Mojolicious::Sessions, Mojocast 3: Authentication
 
 AUTHOR
     Ben van Staveren, "<madcat at cpan.org>"
@@ -147,6 +163,8 @@ ACKNOWLEDGEMENTS
     reminder not to code while sleepy
 
     Mirko Westermeier (memowe) - For doing some (much needed) code cleanup
+
+    Terrence Brannon (metaperl) - Documentation patches
 
 LICENSE AND COPYRIGHT
     Copyright 2011 Ben van Staveren.

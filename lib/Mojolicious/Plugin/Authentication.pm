@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::Authentication;
 BEGIN {
-  $Mojolicious::Plugin::Authentication::VERSION = '1.18';
+  $Mojolicious::Plugin::Authentication::VERSION = '1.19';
 }
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -74,7 +74,7 @@ Mojolicious::Plugin::Authentication - A plugin to make authentication a bit easi
 
 =head1 VERSION
 
-version 1.18
+version 1.19
 
 =head1 SYNOPSIS
 
@@ -95,8 +95,7 @@ version 1.18
 
 =head2 authenticate($username, $password, $extra_data_hashref)
 
-Authenticate will use the supplied load_user and validate_user subroutine refs to see whether a user exists with the given username and password, and will set up the session accordingly.
-Returns true when the user has been successfully authenticated, false otherwise. You can pass additional data along in the extra_data hashref, 
+Authenticate will use the supplied C<load_user> and C<validate_user> subroutine refs to see whether a user exists with the given username and password, and will set up the session accordingly.  Returns true when the user has been successfully authenticated, false otherwise. You can pass additional data along in the extra_data hashref, it will be passed to your C<validate_user> subroutine as-is.
 
 =head2 user_exists
 
@@ -104,7 +103,7 @@ Returns true if an authenticated user exists, false otherwise.
 
 =head2 user
 
-Returns the user object as it was returned from the supplied 'load_user' subroutine ref.
+Returns the user object as it was returned from the supplied C<load_user> subroutine ref.
 
 =head2 logout
 
@@ -116,9 +115,9 @@ The following options can be set for the plugin:
 
 =over 4
 
-=item load_user (REQUIRED) A coderef for user loading (see USER LOADING)
+=item load_user (REQUIRED) A coderef for user loading (see L</"USER LOADING">)
 
-=item validate_user (REQUIRED) A coderef for user validation (see USER VALIDATION)
+=item validate_user (REQUIRED) A coderef for user validation (see L</"USER VALIDATION">)
 
 =item session_key (optional) The name of the session key
 
@@ -140,12 +139,11 @@ The coderef you pass to the load_user configuration key has the following signat
         return $user;
     }
 
-The uid is the value that was originally returned from the validate_user coderef. You must return
-either a user object (it can be a hashref, arrayref, or a blessed object) or undef. 
+The uid is the value that was originally returned from the C<validate_user> coderef. You must return either a user object (it can be a hashref, arrayref, or a blessed object) or undef.
 
 =head1 USER VALIDATION
 
-User validation is what happens when we need to authenticate someone. The coderef you pass to the validate_user configuration key has the following signatre:
+User validation is what happens when we need to authenticate someone. The coderef you pass to the C<validate_user> configuration key has the following signature:
 
     sub {
         my ($app, $username, $password, $extradata) = @_;
@@ -153,11 +151,11 @@ User validation is what happens when we need to authenticate someone. The codere
         return $uid;
     }
 
-You must return either a user id or undef. The user id can be numerical or a string. Do not return hashrefs, arrayrefs or objects, since the behaviour of this plugin could get a little bit on the odd side of weird.
+You must return either a user id or undef. The user id can be numerical or a string. Do not return hashrefs, arrayrefs or objects, since the behaviour of this plugin could get a little bit on the odd side of weird if you do that. 
 
 =head1 EXAMPLES
 
-For a code example using this, see the t/01-functional.t test, it uses Mojolicious::Lite and this plugin.
+For a code example using this, see the F<t/01-functional.t test>, it uses L<Mojolicious::Lite> and this plugin.
 
 =head1 ROUTING VIA CONDITION
 
@@ -170,7 +168,7 @@ This plugin also exports a routing condition you can use in order to limit acces
 
 If someone is not authenticated, these routes will not be considered by the dispatcher and unless you have set up a catch-all route, a 404 Not Found will be generated instead. 
 
-=head1 ROUTING VIA BRIDGE
+=head1 ROUTING VIA CALLBACK
 
 If you want to be able to send people to a login page, you will have to use the following:
 
@@ -183,9 +181,24 @@ If you want to be able to send people to a login page, you will have to use the 
 
     $members_only->route('online')->to('members#online');
 
+=head1 ROUTING VIA BRIDGE
+
+If you want to be able to send people to a login page, you will have to use the following:
+
+    my $auth_bridge = $r->bridge('/members')->to('auth#check');
+    $auth_bridge->route('/list')->to('members#list'); # only visible to logged in users
+
+And in your Auth controller you would put:
+
+    sub check {
+        my $self = shift;
+        $self->redirect_to('/login') and return 0 unless($self->user_exists);
+        return 1;
+    });
+
 =head1 SEE ALSO
 
-L<Mojolicious::Sessions>
+L<Mojolicious::Sessions>, L<Mojocast 3: Authentication|http://mojocasts.com/e3#>
 
 =head1 AUTHOR
 
@@ -220,7 +233,6 @@ L<http://search.cpan.org/dist/Mojolicious-Plugin-Authentication/>
 
 =back
 
-
 =head1 ACKNOWLEDGEMENTS
 
 Andrew Parker   
@@ -228,6 +240,9 @@ Andrew Parker
 
 Mirko Westermeier (memowe) 
     -   For doing some (much needed) code cleanup
+
+Terrence Brannon (metaperl)
+    -   Documentation patches
 
 =head1 LICENSE AND COPYRIGHT
 
