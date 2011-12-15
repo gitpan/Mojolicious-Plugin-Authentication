@@ -3,12 +3,13 @@ NAME
     bit easier
 
 VERSION
-    version 1.19
+    version 1.20
 
 SYNOPSIS
         use Mojolicious::Plugin::Authentication
 
         $self->plugin('authentication' => {
+            'lazy_mode' => 1,
             'session_key' => 'wickedapp',
             'load_user' => sub { ... },
             'validate_user' => sub { ... },
@@ -34,6 +35,16 @@ METHODS
     Returns the user object as it was returned from the supplied "load_user"
     subroutine ref.
 
+  signature_exists
+    Returns true if uid signature exist on the client side (in cookies),
+    false otherwise.
+
+    Warning: non-secure check! Use this method only for a "fast & dirty"
+    lookup to see if the client has the proper cookies. May be helpful in
+    some cases (for example - in counting 'guest'/'logged users' or for
+    additional non-confidential information for 'logged users' but not for
+    'guest').
+
   logout
     Removes the session data for authentication, and effectively logs a user
     out.
@@ -45,6 +56,8 @@ CONFIGURATION
     validate_user (REQUIRED) A coderef for user validation (see "USER
     VALIDATION")
     session_key (optional) The name of the session key
+    lazy_mode (optional) Turn on 'lazy mode' - user data to be loaded only
+    if it be used. May reduce site latency in some cases.
 
     In order to set the session expiry time, use the following in your
     startup routine:
@@ -84,8 +97,8 @@ USER VALIDATION
     if you do that.
 
 EXAMPLES
-    For a code example using this, see the t/01-functional.t test, it uses
-    Mojolicious::Lite and this plugin.
+    For a code example using this, see the t/01-functional.t and
+    t/02-functional_lazy.t tests, it uses Mojolicious::Lite and this plugin.
 
 ROUTING VIA CONDITION
     This plugin also exports a routing condition you can use in order to
@@ -100,6 +113,14 @@ ROUTING VIA CONDITION
     the dispatcher and unless you have set up a catch-all route, a 404 Not
     Found will be generated instead.
 
+    And another condition for fast and unsecured checking for users, having
+    a signature (without validating it). This method just checks client
+    cookies for uid data existing.
+
+        $r->route('/foo')->over(signed => 1)->to('mycontroller#foo');
+
+    This behavior is similar to the "authenticated" condition.
+
 ROUTING VIA CALLBACK
     If you want to be able to send people to a login page, you will have to
     use the following:
@@ -112,6 +133,17 @@ ROUTING VIA CALLBACK
         });
 
         $members_only->route('online')->to('members#online');
+
+    Lazy and unsecured methods:
+
+        my $members_only = $r->route('/unimportant')->to(cb => sub {
+            my $self = shift;
+
+            $self->redirect_to('/login') and return 0 unless($self->signature_exists);
+            return 1;
+        });
+
+        $members_only->route('pages')->to('unimportant#pages');
 
 ROUTING VIA BRIDGE
     If you want to be able to send people to a login page, you will have to
@@ -128,8 +160,16 @@ ROUTING VIA BRIDGE
             return 1;
         });
 
+    Lazy and unsecured methods:
+
+        sub check {
+            my $self = shift;
+            $self->redirect_to('/login') and return 0 unless($self->signature_exists);
+            return 1;
+        });
+
 SEE ALSO
-    Mojolicious::Sessions, Mojocast 3: Authentication
+    Mojolicious::Sessions, <Mojocast 3: Authentication>
 
 AUTHOR
     Ben van Staveren, "<madcat at cpan.org>"
@@ -165,6 +205,9 @@ ACKNOWLEDGEMENTS
     Mirko Westermeier (memowe) - For doing some (much needed) code cleanup
 
     Terrence Brannon (metaperl) - Documentation patches
+
+    Karpich Dmitry (meettya) - lazy_mode and signature_exists functionality,
+    including a test and documentation
 
 LICENSE AND COPYRIGHT
     Copyright 2011 Ben van Staveren.

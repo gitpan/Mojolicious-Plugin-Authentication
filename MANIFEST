@@ -11,6 +11,7 @@ dist.ini
 lib/Mojolicious/Plugin/Authentication.pm
 t/00-load.t
 t/01-functional.t
+t/02-functional_lazy.t
 t/manifest.t
 t/release-cpan-changes.t
 weaver.ini

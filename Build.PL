@@ -13,7 +13,7 @@ my %module_build_args = (
     'Test::More' => '0'
   },
   'configure_requires' => {
-    'ExtUtils::MakeMaker' => '6.30',
+    'ExtUtils::MakeMaker' => '6.31',
     'Module::Build' => '0.38'
   },
   'dist_abstract' => 'A plugin to make authentication a bit easier',
@@ -21,7 +21,7 @@ my %module_build_args = (
     'Ben van Staveren <madcat@cpan.org>'
   ],
   'dist_name' => 'Mojolicious-Plugin-Authentication',
-  'dist_version' => '1.19',
+  'dist_version' => '1.20',
   'license' => 'perl',
   'module_name' => 'Mojolicious::Plugin::Authentication',
   'recommends' => {},
