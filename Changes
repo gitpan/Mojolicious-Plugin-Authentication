@@ -1,5 +1,9 @@
 Revision history for Mojolicious-Plugin-Authentication
 
+1.21      2012-01-11 08:33:07 Asia/Jakarta
+    Ivo Welch was kind enough to send me his first ever Mojolicious application that demonstrates the usage of this module, and I've included it in the distribution.
+    Changed the date on copyright notices to 2012 - how time flies! 
+
 1.20      2011-12-15 15:00:24 Asia/Jakarta
     Added "lazy_mode" and "signature_exists" along with some doc patches (meettya) 
 

@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::Authentication;
 BEGIN {
-  $Mojolicious::Plugin::Authentication::VERSION = '1.20';
+  $Mojolicious::Plugin::Authentication::VERSION = '1.21';
 }
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -113,7 +113,7 @@ Mojolicious::Plugin::Authentication - A plugin to make authentication a bit easi
 
 =head1 VERSION
 
-version 1.20
+version 1.21
 
 =head1 SYNOPSIS
 
@@ -320,9 +320,13 @@ Terrence Brannon (metaperl)
 Karpich Dmitry (meettya)
     -   lazy_mode and signature_exists functionality, including a test and documentation
 
+Ivo Welch
+    -   For donating his first ever Mojolicious application that shows an example of how
+        to use this module
+
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2011 Ben van Staveren.
+Copyright 2011-2012 Ben van Staveren.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published

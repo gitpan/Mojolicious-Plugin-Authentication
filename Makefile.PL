@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'Mojo::Base' => '0'
   },
-  'VERSION' => '1.20',
+  'VERSION' => '1.21',
   'test' => {
     'TESTS' => 't/*.t'
   }
