@@ -4,33 +4,35 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'A plugin to make authentication a bit easier',
-  'AUTHOR' => 'Ben van Staveren <madcat@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'Module::Build' => '0.38',
-    'Mojolicious::Lite' => '0',
-    'Test::Mojo' => '0',
-    'Test::More' => '0'
+  "ABSTRACT" => "A plugin to make authentication a bit easier",
+  "AUTHOR" => "Ben van Staveren <madcat\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "Module::Build" => "0.38",
+    "Mojolicious::Lite" => 0,
+    "Test::Mojo" => 0,
+    "Test::More" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31',
-    'Module::Build' => '0.38'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30",
+    "Module::Build" => "0.38"
   },
-  'DISTNAME' => 'Mojolicious-Plugin-Authentication',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'Mojolicious::Plugin::Authentication',
-  'PREREQ_PM' => {
-    'Mojo::Base' => '0'
+  "DISTNAME" => "Mojolicious-Plugin-Authentication",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Mojolicious::Plugin::Authentication",
+  "PREREQ_PM" => {
+    "Mojo::Base" => 0
   },
-  'VERSION' => '1.21',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "1.22",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 
