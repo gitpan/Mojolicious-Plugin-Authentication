@@ -3,7 +3,7 @@ NAME
     bit easier
 
 VERSION
-    version 1.22
+    version 1.23
 
 SYNOPSIS
         use Mojolicious::Plugin::Authentication
@@ -223,6 +223,9 @@ ACKNOWLEDGEMENTS
 
     Ed W - Adding the current_user() functionality, as well as some method
     renaming to make things a bit more sane.
+
+    SailingYYC (Github) - For reporting an issue with routing conditions; I
+    really should not code while sleepy, brainfarts imminent!
 
 LICENSE AND COPYRIGHT
     Copyright 2011-2012 Ben van Staveren.

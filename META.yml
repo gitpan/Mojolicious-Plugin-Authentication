@@ -13,7 +13,7 @@ configure_requires:
   ExtUtils::MakeMaker: 6.30
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300007, CPAN::Meta::Converter version 2.113640'
+generated_by: 'Dist::Zilla version 4.300020, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -25,4 +25,4 @@ resources:
   bugtracker: https://github.com/benvanstaveren/Mojolicious-Plugin-Authentication/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-Authentication/
   repository: git://github.com/benvanstaveren/Mojolicious-Plugin-Authentication.git
-version: 1.22
+version: 1.23

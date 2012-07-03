@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::Authentication;
 {
-  $Mojolicious::Plugin::Authentication::VERSION = '1.22';
+  $Mojolicious::Plugin::Authentication::VERSION = '1.23';
 }
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -67,12 +67,12 @@ sub register {
 
     $app->routes->add_condition(authenticated => sub {
         my ($r, $c, $captures, $required) = @_;
-        return ($required && $c->is_user_authenticated) ? 1 : 0;
+        return (!$required || $c->is_user_authenticated) ? 1 : 0;
     });
 
     $app->routes->add_condition(signed => sub {
         my ($r, $c, $captures, $required) = @_;
-        return ($required && $c->signature_exists) ? 1 : 0;
+        return (!$required || $c->signature_exists) ? 1 : 0;
     });
 
     # deprecation handling
@@ -138,7 +138,7 @@ Mojolicious::Plugin::Authentication - A plugin to make authentication a bit easi
 
 =head1 VERSION
 
-version 1.22
+version 1.23
 
 =head1 SYNOPSIS
 
@@ -359,6 +359,9 @@ Ivo Welch
 Ed W
     -   Adding the current_user() functionality, as well as some method renaming to make things
         a bit more sane.
+
+SailingYYC (Github)
+    -   For reporting an issue with routing conditions; I really should not code while sleepy, brainfarts imminent! 
 
 =head1 LICENSE AND COPYRIGHT
 

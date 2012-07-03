@@ -1,5 +1,9 @@
 Revision history for Mojolicious-Plugin-Authentication
 
+1.23      2012-07-03 13:56:38 Asia/Jakarta
+    Issue #5 closed; the signed and authenticated conditions only worked if you indicated 'required' to be true, this got fixed. 
+    (Reported by SailingYYC)
+
 1.22      2012-03-30 08:43:13 Asia/Jakarta
     Ed W contributed some more functionality and renamed some options and methods to make things a bit more sane. 
 

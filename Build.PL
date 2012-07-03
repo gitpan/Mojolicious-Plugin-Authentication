@@ -23,7 +23,7 @@ my %module_build_args = (
     "Ben van Staveren <madcat\@cpan.org>"
   ],
   "dist_name" => "Mojolicious-Plugin-Authentication",
-  "dist_version" => "1.22",
+  "dist_version" => "1.23",
   "license" => "perl",
   "module_name" => "Mojolicious::Plugin::Authentication",
   "recommends" => {},
