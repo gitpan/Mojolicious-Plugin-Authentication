@@ -1,5 +1,8 @@
 Revision history for Mojolicious-Plugin-Authentication
 
+1.24      2012-08-02 01:36:17 Asia/Jakarta
+    Removed the example app until next release to resolve some RPM build issues, it will return in the next release
+
 1.23      2012-07-03 13:56:38 Asia/Jakarta
     Issue #5 closed; the signed and authenticated conditions only worked if you indicated 'required' to be true, this got fixed. 
     (Reported by SailingYYC)

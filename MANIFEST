@@ -8,9 +8,6 @@ Makefile.PL
 README
 README.pod
 dist.ini
-example/minipasswdfile.pm
-example/minipasswdfile.txt
-example/showoff-authentication.pl
 lib/Mojolicious/Plugin/Authentication.pm
 t/00-load.t
 t/01-functional.t

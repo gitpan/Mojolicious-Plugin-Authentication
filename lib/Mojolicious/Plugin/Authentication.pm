@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::Authentication;
 {
-  $Mojolicious::Plugin::Authentication::VERSION = '1.23';
+  $Mojolicious::Plugin::Authentication::VERSION = '1.24';
 }
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -138,7 +138,7 @@ Mojolicious::Plugin::Authentication - A plugin to make authentication a bit easi
 
 =head1 VERSION
 
-version 1.23
+version 1.24
 
 =head1 SYNOPSIS
 

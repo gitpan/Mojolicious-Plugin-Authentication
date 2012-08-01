@@ -25,4 +25,4 @@ resources:
   bugtracker: https://github.com/benvanstaveren/Mojolicious-Plugin-Authentication/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-Authentication/
   repository: git://github.com/benvanstaveren/Mojolicious-Plugin-Authentication.git
-version: 1.23
+version: 1.24
