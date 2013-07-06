@@ -3,7 +3,7 @@ NAME
     bit easier
 
 VERSION
-    version 1.24
+    version 1.25
 
 SYNOPSIS
         use Mojolicious::Plugin::Authentication
