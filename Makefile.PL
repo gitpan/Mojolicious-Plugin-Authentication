@@ -11,12 +11,9 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "A plugin to make authentication a bit easier",
   "AUTHOR" => "Ben van Staveren <madcat\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Module::Build" => "0.38"
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => "6.30",
-    "Module::Build" => "0.38"
+    "ExtUtils::MakeMaker" => "6.30"
   },
   "DISTNAME" => "Mojolicious-Plugin-Authentication",
   "EXE_FILES" => [],
@@ -32,7 +29,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "1.25",
+  "VERSION" => "1.26",
   "test" => {
     "TESTS" => "t/*.t"
   }

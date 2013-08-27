@@ -3,7 +3,7 @@ NAME
     bit easier
 
 VERSION
-    version 1.25
+    version 1.26
 
 SYNOPSIS
         use Mojolicious::Plugin::Authentication
@@ -27,7 +27,11 @@ METHODS
     password, and will set up the session accordingly. Returns true when the
     user has been successfully authenticated, false otherwise. You can pass
     additional data along in the extra_data hashref, it will be passed to
-    your "validate_user" subroutine as-is.
+    your "validate_user" subroutine as-is. If the extra data hash contains a
+    key 'auto_validate', the value of that key will be used as the UID, and
+    authenticate will not call your validate_user callback; this can be used
+    when working with oAuth tokens or other authentication mechnisms that do
+    not use a local username and password form.
 
   is_user_authenticated
     Returns true if current_user() returns some valid object, false

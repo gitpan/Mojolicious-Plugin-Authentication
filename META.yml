@@ -3,7 +3,6 @@ abstract: 'A plugin to make authentication a bit easier'
 author:
   - 'Ben van Staveren <madcat@cpan.org>'
 build_requires:
-  Module::Build: 0.38
   Mojolicious::Lite: 0
   Test::Mojo: 0
   Test::More: 0
@@ -11,7 +10,6 @@ build_requires:
   warnings: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
-  Module::Build: 0.38
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560'
 license: perl
@@ -25,4 +23,4 @@ resources:
   bugtracker: https://github.com/benvanstaveren/Mojolicious-Plugin-Authentication/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-Authentication/
   repository: git://github.com/benvanstaveren/Mojolicious-Plugin-Authentication.git
-version: 1.25
+version: 1.26
